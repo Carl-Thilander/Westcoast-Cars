@@ -1,8 +1,9 @@
 export const vehicleList = document.querySelector('#vehicles');
-import { get } from "./scripts/httpClient.js";
+import http from "./scripts/httpClient.js";
 
 export const loadVehicles = async () => {
-    const vehicles = await get('vehicles')
+  const client = new http('vehicles')
+    const vehicles = await client.get();
 
     console.log(vehicles);
     for (let vehicle of vehicles) {
