@@ -1,4 +1,4 @@
-import { Settings } from "./config.js";
+import { Settings } from "./config/config.js";
 
 
 export default class HttpClient{
