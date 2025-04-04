@@ -1,8 +1,8 @@
-export const vehicleList = document.querySelector('#vehicles');
 import * as controller from './scripts/controllers/vehicleController.js';
 
-
-export const loadVehicles = async () => {
+const initApp = async () => {
   await controller.createGallery();
-    
-  };
+}
+
+document.addEventListener('DOMContentLoaded', initApp);
+  

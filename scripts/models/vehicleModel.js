@@ -7,11 +7,11 @@ export const state = {
 
 export const listVehicles = async() => {
     try {
-        const client = new http('vehicles');
+        const client = new http('westcoastcars');
         const result = await client.get();
 
 
-        state.vehicles = result.map(vehicle => {
+        state.vehicles = result.map((vehicle) => {
             return {...vehicle};
         })
 
@@ -22,7 +22,7 @@ export const listVehicles = async() => {
 
 export const findVehicle = async(id) => {
     try {
-        const client = new http(`vehicles/${id}`);
+        const client = new http(`westcoastcars/${id}`);
         const result = await client.get();
         state.vehicle = result;
         console.log(state.vehicle);

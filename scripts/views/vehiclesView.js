@@ -1,20 +1,11 @@
-class VehiclesView {
-  #parentElement = document.querySelector("#gallery");
-  #data;
+import View from "./View.js";
 
-  render(data) {
-    this.#data = data;
-    this.#clearHtml();
-    const html = this.#generateHtml();
-    this.#parentElement.appendChild(html);
-    this.#generateImageEvent();
+class VehiclesView extends View {
+  constructor(){
+    super(document.querySelector('#gallery'));
   }
 
-  #clearHtml(){
-    this.#parentElement.innerHTML = '';
-  }
-
-  #generateImageEvent() {
+  _generateImageEvent() {
     const images = document.querySelectorAll("img");
     images.forEach((image) => {
       image.addEventListener("click", () => {
@@ -24,17 +15,18 @@ class VehiclesView {
     });
   }
 
-  #generateHtml() {
+  _generateHtml() {
     const vehicleList = document.createElement("article");
     vehicleList.classList.add("gallery");
 
-    for (let vehicle of this.#data) {
+    for (let vehicle of this._data) {
+      console.log(vehicle);
       const section = document.createElement("section");
       section.classList.add("card");
       const image = document.createElement("img");
-      image.setAttribute("src", `./images/${vehicle.imageUrl}`);
+      image.setAttribute("src", `./images/${vehicle.imageURL}`);
       image.alt = vehicle.manufacturer;
-      image.setAttribute("vehicleId", vehicle.id);
+      image.setAttribute("vehicleId", vehicle._id);
       section.appendChild(image);
       const info = document.createElement("p");
       info.innerText = vehicle.manufacturer;

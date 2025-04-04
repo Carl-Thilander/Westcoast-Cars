@@ -1,29 +1,31 @@
-class VehicleView{
-    #parentElement = document.querySelector('main div.container');
-    #data;
+import View from "./View.js";
+
+class VehicleView extends View{
+    constructur(){
+        super(document.querySelector('main div.container'))
+      }
 
     render(data){
-        this.#data = data;
-        this.#clearHtml();
-        const html = this.#generateHtml;
-        this.#parentElement.insertAdjacentHTML('afterbegin', html);
+        this._data = data;
+        this._clearHtml();
+        const html = this._generateHtml;
+        this._parentElement.insertAdjacentHTML('afterbegin', html);
+        
     }
 
-    #clearHtml(){
-        this.#parentElement.innerHTML ='';
-    }
+   
 
-    #generateHtml(){
+    _generateHtml(){
         return `
-        <h1 class="page-title"> = ${this.#data.manufacturer} ${this.#data.model} </h1>
+        <h1 class="page-title"> = ${this._data.manufacturer} ${this._data.model} </h1>
         <article class="details">
         <section>
-            <img src= ./images/${this.#data.imageUrl}/>
+            <img src= ./images/${this._data.imageURL}/>
             <div>
-            <p>Årsmodell: <span>${this.#data.modelYear}</span></p>
-            <p>Antal körda mil: <span>${this.#data.mileage}</span></p>
-            <p>Pris: <span>${this.#data.value}</span></p>
-            <p>Beskrivning: <br/><span>${this.#data.description}</span></p>
+            <p>Årsmodell: <span>${this._data.modelYear}</span></p>
+            <p>Antal körda mil: <span>${this._data.mileage}</span></p>
+            <p>Pris: <span>${this._data.value}</span></p>
+            <p>Beskrivning: <br/><span>${this._data.description}</span></p>
             </div>
         </sections>
         </article>`;
