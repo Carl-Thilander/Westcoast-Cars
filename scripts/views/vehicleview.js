@@ -1,16 +1,16 @@
 import View from "./View.js";
 
 class VehicleView extends View{
-    constructur(){
+    constructor(){
         super(document.querySelector('main div.container'))
       }
 
     render(data){
+        console.log("View",data);
         this._data = data;
         this._clearHtml();
         const html = this._generateHtml;
         this._parentElement.insertAdjacentHTML('afterbegin', html);
-        
     }
 
    

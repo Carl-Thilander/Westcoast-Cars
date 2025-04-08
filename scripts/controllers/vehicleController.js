@@ -8,5 +8,6 @@ export const createGallery = async () => {
 
 export const createDetailsPage = async(id) => {
     await model.findVehicle(id);
+    console.log("ctrl",model.state.vehicle);
     vehicleView.render(model.state.vehicle);
 }

@@ -25,7 +25,7 @@ export const findVehicle = async(id) => {
         const client = new http(`westcoastcars/${id}`);
         const result = await client.get();
         state.vehicle = result;
-        console.log(state.vehicle);
+        console.log("!!!",state.vehicle);
     } catch (error) {
         console.error(error);
     }
